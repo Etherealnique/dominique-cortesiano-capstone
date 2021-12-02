@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Coin from "../components/Coin";
+import Coin from "../components/Coin/Coin";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -42,6 +42,7 @@ function App() {
         return (
           <Coin
             key={coin.id}
+            id={coin.id}
             name={coin.name}
             price={coin.current_price}
             symbol={coin.symbol}
