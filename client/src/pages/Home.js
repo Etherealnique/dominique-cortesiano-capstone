@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Coin from "../components/Coin/Coin";
 
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
@@ -44,7 +48,7 @@ function App() {
             key={coin.id}
             id={coin.id}
             name={coin.name}
-            price={coin.current_price}
+            price={numberWithCommas(coin.current_price)}
             symbol={coin.symbol}
             marketcap={coin.total_volume}
             volume={coin.market_cap}

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ReactHtmlParser from "react-html-parser";
-import CoinInfo from "../components/CoinInfo/CoinInfo";
+import CoinLineGraph from "../components/CoinLineGraph/CoinLineGraph";
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import "./CoinDetails.scss";
@@ -35,9 +35,6 @@ const CoinDetails = () => {
   if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
-    // <div className="coin-details__container">
-    //   <div classname="coin-details__sidebar">sidebar</div>
-    // </div>
     <div className={classes.container}>
       <div className={classes.sidebar}></div>
       <img
@@ -59,7 +56,9 @@ const CoinDetails = () => {
         </h3>
         <h3 className="coin-details__market-data">
           Current Price:{symbol}{" "}
-          {coin?.market_data.current_price[currency.toLowerCase()]}
+          {numberWithCommas(
+            coin?.market_data.current_price[currency.toLowerCase()]
+          )}
         </h3>
         <h3 className="coin-details__market-data">
           Market Cap: {symbol}{" "}
@@ -72,7 +71,7 @@ const CoinDetails = () => {
         </h3>
       </div>
 
-      <CoinInfo coin={coin} />
+      <CoinLineGraph coin={coin} />
     </div>
   );
 };
