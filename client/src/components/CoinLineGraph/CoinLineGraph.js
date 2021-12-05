@@ -74,15 +74,16 @@ const CoinLineGraph = ({ coin }) => {
                 const unixTime = coin[0];
                 let time;
                 if (days === 1) {
-                  const date = new Date(unixTime * 1000);
-                  const hours = date.getHours();
+                  let date = new Date(coin[0]);
+                  let time =
+                    date.getHours() > 12
+                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                      : `${date.getHours()}:${date.getMinutes()} AM`;
+                  return days === 1 ? time : date.toLocaleDateString();
 
-                  const minutes = "0" + date.getMinutes();
-
-                  time = hours + ":" + minutes.substr(-2);
                   return time;
                 } else {
-                  const date = new Date(unixTime * 1000);
+                  const date = new Date(unixTime * 100);
                   let month = date.getMonth();
                   let day = date.getDate();
                   let year = date.getFullYear();

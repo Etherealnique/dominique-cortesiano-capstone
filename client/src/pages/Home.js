@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Coin from "../components/Coin/Coin";
+import CoinsTable from "../components/CoinsTable/CoinsTable";
 
 const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-function App() {
+function Home() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -44,7 +44,7 @@ function App() {
       </div>
       {filteredCoins.map((coin) => {
         return (
-          <Coin
+          <CoinsTable
             key={coin.id}
             id={coin.id}
             name={coin.name}
@@ -61,4 +61,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
