@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Header.scss";
 import CoinModal from "../CoinModal/CoinModal";
 import VirtualWallet from "../../pages/VirtualWallet";
+import logo from "../../assets/images/Logo.png";
 
 function Header() {
   return (
@@ -13,6 +14,10 @@ function Header() {
         </Link>
         <CoinModal />
         <VirtualWallet />
+        <Link to="/about">
+          <button className="header__link--two">About</button>
+        </Link>
+        <img className="header__logo" src={logo} alt="Logo" />
       </ul>
     </div>
   );

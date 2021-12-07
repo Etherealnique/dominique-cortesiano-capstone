@@ -2,14 +2,26 @@
 * {
   margin: 0;
   padding: 0;
-
+  text-decoration: none;
   font-family: "Manrope", sans-serif;
+
+  a:visited {
+    color: black;
+  }
 }
 
 .header {
+  background-color: #d2d5dd;
   &__link {
     display: flex;
     flex-direction: row;
+  }
+  &__logo {
+    margin-top: 1rem;
+    margin-left: 7%;
+    height: 4rem;
+    display: block;
+    filter: drop-shadow(0 0.2rem 0rem rgba(0, 0, 0, 0.3));
   }
 }
 

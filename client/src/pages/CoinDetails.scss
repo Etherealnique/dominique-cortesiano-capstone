@@ -1,3 +1,18 @@
-.coin-details__description {
-  width: 15rem;
+.coin-details {
+  margin-top: -5.1rem;
+  background-color: #d2d5dd;
+  padding: 3rem;
+  &__container {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+  }
+  &__logo {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  &__description {
+    width: 15rem;
+  }
 }

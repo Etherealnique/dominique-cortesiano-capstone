@@ -74,9 +74,9 @@ export default function AuthModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
             <p id="transition-modal-description">
-              <h1>I am the Coin Modal</h1>
+              <h1>What is Blockchain?</h1>
+
               <ReactPlayer url="https://www.youtube.com/watch?v=SSo_EIwHSd4" />
             </p>
           </div>

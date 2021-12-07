@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CoinsTable from "../components/CoinsTable/CoinsTable";
+import "./Home.scss";
+import CoinSpin from "../components/CoinSpin/CoinSpin";
 
 const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -30,12 +32,13 @@ function Home() {
   );
 
   return (
-    <div className="crypto-stock">
-      <div className="crypto-stock__search">
-        <h1 className="crypto-stock__text">Search a currency</h1>
+    <div className="home">
+      <div className="home__container">
+        <CoinSpin />
+        <h1 className="home__header">Search A Currency</h1>
         <form>
           <input
-            className="crypto-stock__input"
+            className="home__input"
             type="text"
             onChange={handleChange}
             placeholder="Search"

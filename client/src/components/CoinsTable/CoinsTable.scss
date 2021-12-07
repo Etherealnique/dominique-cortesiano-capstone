@@ -2,13 +2,15 @@
   display: flex;
   align-items: center;
   padding-right: 24px;
-  min-width: 300px;
+  min-width: 20px;
   &__container {
+    font-size: 20px;
     display: flex;
     justify-content: center;
-    background-color: pink;
+    background-color: #d2d5dd;
+    color: black;
     &:hover {
-      background-color: yellow;
+      background-color: #b8bacf;
       cursor: pointer;
     }
   }
@@ -17,19 +19,24 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    height: 80px;
+    align-items: flex-start;
+    height: 70px;
     border-bottom: 1px solid #d7d7d7;
     width: 900px;
+
+    padding-bottom: -12px;
+    padding-top: 2rem;
   }
   &__image {
-    height: 30px;
-    width: 30px;
-    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+    margin-right: 25px;
   }
 
   &__name {
-    font-size: 16px;
-    width: 150px;
+    font-size: 20px;
+    width: 250px;
+    margin-right: 1rem;
   }
   &__symbol {
     text-transform: uppercase;
@@ -42,22 +49,24 @@
   }
   &__price {
     width: 110px;
+    padding-right: 1.5rem;
   }
   &__volume {
+    text-decoration: none;
     width: 155px;
   }
   &__percent {
     &-negative {
-      width: 100px;
+      width: 110px;
       color: #f00606;
     }
     &-positive {
-      width: 100px;
+      width: 110px;
       color: #11d811;
     }
   }
 
   &__marketcap {
-    width: 230px;
+    width: 250px;
   }
 }

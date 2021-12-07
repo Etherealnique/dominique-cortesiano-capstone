@@ -35,42 +35,40 @@ const CoinDetails = () => {
   if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
-    <div className={classes.container}>
-      <div className={classes.sidebar}></div>
-      <img
-        className="coin-details__logo"
-        src={coin?.image.large}
-        alt={coin?.name}
-        height="200"
-        style={{ marginBottom: 20 }}
-      />
-      <h1 className="coin-details__cryto-name">{coin?.name}</h1>
+    <div className="coin-details">
+      <div className="coin-details__container">
+        <img
+          className="coin-details__logo"
+          src={coin?.image.large}
+          alt={coin?.name}
+        />
+        <h1 className="coin-details__cryto-name">{coin?.name}</h1>
 
-      <h3 className="coin-details__description">
-        {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
-      </h3>
+        <h3 className="coin-details__description">
+          {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
+        </h3>
 
-      <div className="coin-details__container-market">
-        <h3 className="coin-details__market-data">
-          Rank:{coin?.market_cap_rank}
-        </h3>
-        <h3 className="coin-details__market-data">
-          Current Price:{symbol}{" "}
-          {numberWithCommas(
-            coin?.market_data.current_price[currency.toLowerCase()]
-          )}
-        </h3>
-        <h3 className="coin-details__market-data">
-          Market Cap: {symbol}{" "}
-          {numberWithCommas(
-            coin?.market_data.market_cap[currency.toLowerCase()]
-              .toString()
-              .slice(0, -6)
-          )}
-          M
-        </h3>
+        <div className="coin-details__container-market">
+          <h3 className="coin-details__market-data">
+            Rank:{coin?.market_cap_rank}
+          </h3>
+          <h3 className="coin-details__market-data">
+            Current Price:{symbol}{" "}
+            {numberWithCommas(
+              coin?.market_data.current_price[currency.toLowerCase()]
+            )}
+          </h3>
+          <h3 className="coin-details__market-data">
+            Market Cap: {symbol}{" "}
+            {numberWithCommas(
+              coin?.market_data.market_cap[currency.toLowerCase()]
+                .toString()
+                .slice(0, -6)
+            )}
+            M
+          </h3>
+        </div>
       </div>
-
       <CoinLineGraph coin={coin} />
     </div>
   );
