@@ -1,33 +1,9 @@
-// import React from "react";
-// import "./CoinModal.scss";
-
-// function CoinModal(props) {
-//   return props.trigger ? (
-//     <div className="modal">
-//       <div className="modal__inner">
-//         <button
-//           className="modal__close-btn"
-//           onClick={() => props.setTrigger(false)}
-//         >
-//           close
-//         </button>
-//         {props.children}
-//       </div>
-//     </div>
-//   ) : (
-//     ""
-//   );
-// }
-
-// export default CoinModal;
-
 import React from "react";
 import ReactPlayer from "react-player";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import "./CoinModal.scss";
 
 const useStyles = makeStyles((theme) => ({
   modal: {

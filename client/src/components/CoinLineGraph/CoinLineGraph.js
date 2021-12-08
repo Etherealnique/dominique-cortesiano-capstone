@@ -2,16 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { HistoricalChart } from "../../config/api";
 import { Line } from "react-chartjs-2";
-import {
-  CircularProgress,
-  createTheme,
-  makeStyles,
-  ThemeProvider,
-} from "@material-ui/core";
+import { CircularProgress, makeStyles } from "@material-ui/core";
 import SelectButton from "../SelectButton/SelectButton";
 import { chartDays } from "../../config/data";
 import { CryptoState } from "../../CryptoContext";
-import shadows from "@material-ui/core/styles/shadows";
 
 const CoinLineGraph = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
@@ -27,15 +21,10 @@ const CoinLineGraph = ({ coin }) => {
       alignItems: "center",
       backgroundColor: "white",
       justifyContent: "center",
+      borderRadius: 5,
       marginTop: 25,
-      padding: 40,
+      margingRight: 40,
       boxShadow: "3px 3px 10px #00000052",
-      [theme.breakpoints.down("md")]: {
-        width: "100%",
-        marginTop: 0,
-        padding: 20,
-        paddingTop: 0,
-      },
     },
   }));
 
@@ -67,8 +56,8 @@ const CoinLineGraph = ({ coin }) => {
               labels: historicData.map((coin) => {
                 let date = new Date(coin[0]);
                 let time =
-                  date.getHours() > 10
-                    ? `${date.getHours() - 10}:${date.getMinutes()} PM`
+                  date.getHours() > 12
+                    ? `${date.getHours() - 12}:${date.getMinutes()} PM`
                     : `${date.getHours()}:${date.getMinutes()} AM`;
                 return days === 1 ? time : date.toLocaleDateString();
               }),

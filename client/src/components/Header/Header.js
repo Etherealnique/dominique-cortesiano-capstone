@@ -14,7 +14,6 @@ function Header() {
         </Link>
         <CoinModal />
         <VirtualWallet />
-
         <img className="header__logo" src={logo} alt="Logo" />
       </ul>
     </div>
