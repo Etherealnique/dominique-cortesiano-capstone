@@ -7,6 +7,8 @@ import ReactHtmlParser from "react-html-parser";
 import CoinLineGraph from "../components/CoinLineGraph/CoinLineGraph";
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
+import keylock from "../assets/images/keylock.png";
+import link from "../assets/images/link.png";
 import "./CoinDetails.scss";
 
 const numberWithCommas = (x) => {
@@ -37,16 +39,16 @@ const CoinDetails = () => {
   return (
     <div className="coin-details">
       <div className="coin-details__container">
-        <img
-          className="coin-details__logo"
-          src={coin?.image.large}
-          alt={coin?.name}
-        />
-        <h1 className="coin-details__cryto-name">{coin?.name}</h1>
-
-        <h3 className="coin-details__description">
-          {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
-        </h3>
+        <img className="coin-details__keylock" src={keylock} alt="keylock" />
+        <hr className="coin-details__divider-left" />
+        <section>
+          <h1 className="coin-details__cryto-name">{coin?.name}</h1>
+          <img
+            className="coin-details__logo"
+            src={coin?.image.large}
+            alt={coin?.name}
+          />
+        </section>
 
         <div className="coin-details__container-market">
           <h3 className="coin-details__market-data">
@@ -67,7 +69,12 @@ const CoinDetails = () => {
             )}
             M
           </h3>
+          <h3 className="coin-details__description">
+            {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
+          </h3>
         </div>
+        <hr className="coin-details__divider-right" />
+        <img className="coin-details__link" src={link} alt="link" />
       </div>
       <CoinLineGraph coin={coin} />
     </div>

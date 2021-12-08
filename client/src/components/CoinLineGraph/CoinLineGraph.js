@@ -11,6 +11,7 @@ import {
 import SelectButton from "../SelectButton/SelectButton";
 import { chartDays } from "../../config/data";
 import { CryptoState } from "../../CryptoContext";
+import shadows from "@material-ui/core/styles/shadows";
 
 const CoinLineGraph = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
@@ -22,10 +23,13 @@ const CoinLineGraph = ({ coin }) => {
       width: "75%",
       display: "flex",
       flexDirection: "column",
+      marginLeft: "8rem",
       alignItems: "center",
+      backgroundColor: "white",
       justifyContent: "center",
       marginTop: 25,
       padding: 40,
+      boxShadow: "3px 3px 10px #00000052",
       [theme.breakpoints.down("md")]: {
         width: "100%",
         marginTop: 0,
@@ -47,15 +51,6 @@ const CoinLineGraph = ({ coin }) => {
     fetchHistoricData();
   }, [days]);
 
-  const darkTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#fff",
-      },
-      type: "dark",
-    },
-  });
-
   return (
     <div className={classes.container}>
       {!historicData ? (
@@ -67,34 +62,15 @@ const CoinLineGraph = ({ coin }) => {
       ) : (
         <>
           <Line
+            className="line-graph"
             data={{
-              labels: historicData.map((coin, index) => {
-                // let date = new Date(coin[0]);
-                // let time =
-                //   date.getHours() > 12
-                //     ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-                //     : `${date.getHours()}:${date.getMinutes()} AM`;
-                // return days === 1 ? time : date.toLocaleDateString();
-                const unixTime = coin[0];
-                let time;
-                if (days === 1) {
-                  let date = new Date(coin[0]);
-                  let time =
-                    date.getHours() > 12
-                      ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-                      : `${date.getHours()}:${date.getMinutes()} AM`;
-                  return days === 1 ? time : date.toLocaleDateString();
-
-                  return time;
-                } else {
-                  const date = new Date(unixTime * 100);
-                  let month = date.getMonth();
-                  let day = date.getDate();
-                  let year = date.getFullYear();
-                  time = `${month}/${day}/${year}`;
-                  return time;
-                }
-                coin[0] = time;
+              labels: historicData.map((coin) => {
+                let date = new Date(coin[0]);
+                let time =
+                  date.getHours() > 10
+                    ? `${date.getHours() - 10}:${date.getMinutes()} PM`
+                    : `${date.getHours()}:${date.getMinutes()} AM`;
+                return days === 1 ? time : date.toLocaleDateString();
               }),
 
               datasets: [

@@ -3,16 +3,65 @@
   background-color: #d2d5dd;
   padding: 3rem;
   &__container {
+    box-shadow: 3px 3px 10px #00000052;
     margin-top: 5rem;
     margin-bottom: 5rem;
+    background-color: #ebe5e4;
+    padding-top: 1rem;
     display: flex;
     justify-content: center;
   }
   &__logo {
     height: 200px;
+    padding-top: 1.5rem;
     margin-bottom: 20px;
   }
+  &__cryto-name {
+    font-size: 50px;
+  }
+  &__container-market {
+    padding-left: 2rem;
+  }
+  &__market-data {
+    padding-top: 1.5rem;
+  }
   &__description {
-    width: 15rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    width: 25rem;
+  }
+  &__keylock {
+    padding-top: 4rem;
+    padding-right: 1rem;
+    margin-right: 4rem;
+    height: 9.5rem;
+    width: 9.5rem;
+    &:hover {
+      transform: scale(
+        1.5
+      ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+  }
+  &__link {
+    padding-top: 5rem;
+    padding-left: 1rem;
+    margin-left: 4rem;
+    height: 8rem;
+    width: 8rem;
+    &:hover {
+      transform: scale(
+        1.5
+      ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+  }
+  &__divider {
+    border: 5px solid #807470;
+    padding-bottom: 1rem;
+    &-left {
+      margin-right: 1rem;
+    }
+    &-right {
+      margin-left: 1rem;
+    }
   }
 }

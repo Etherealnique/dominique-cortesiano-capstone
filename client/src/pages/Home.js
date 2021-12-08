@@ -36,14 +36,21 @@ function Home() {
       <div className="home__container">
         <CoinSpin />
         <h1 className="home__header">Search A Currency</h1>
-        <form>
-          <input
-            className="home__input"
-            type="text"
-            onChange={handleChange}
-            placeholder="Search"
-          />
-        </form>
+
+        <body>
+          <form class="search-container">
+            <input
+              type="text"
+              name="search"
+              onChange={handleChange}
+              placeholder="Search..."
+              class="search-input"
+            />
+            <button href="#" class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </body>
       </div>
       {filteredCoins.map((coin) => {
         return (
